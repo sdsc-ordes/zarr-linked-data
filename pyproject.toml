@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "zarr-linked-data"
+version = "0.1.0"
+description = "a dataflow composed both of the Zarr data format and linked metadata."
+authors = ["Laure Vancau <laurevanco@sfr.fr>"]
+license = "MIT License"
+readme = "README.md"
+packages = [{include = "zarr_linked_data"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+zarr = "^2.14.2"
+pyld = "^2.0.3"
+h5py = "^3.8.0"
+fsspec = "^2023.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
