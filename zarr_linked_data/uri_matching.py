@@ -1,4 +1,5 @@
 import json
+import zarr
 
 
 def open_metadata_store(path_metadata_store):
@@ -11,7 +12,7 @@ def open_metadata_store(path_metadata_store):
     with open(path_metadata_store) as all_metadata:
         dict_metadata = json.load(all_metadata)
         dict_metadata = dict_metadata["metadata"]
-        return
+        return dict_metadata
 
 
 def match_uri(uri, dict_metadata):
@@ -43,16 +44,20 @@ def extract_dataset(metadata_path, store):
     uri_data = path + "/" + path.split("/")[-1] + "Dataset"
 
     # two options: path or store
-    # zarr.open("data/test_store.zarr/" + uri_data,
-    #                 mode='r', shape=(9000, 10000),
-    #                 chunks=(900, 1000), dtype='i4')
-    # what to do about this shape business?
+    # option 1
+    # data = zarr.open("data/test_store.zarr/" + uri_data,
+    #                 mode='r',
+    #                 #shape=(9000, 10000),
+    #                 #chunks=(900, 1000),
+    #                 dtype='float64')
+    # option 2
     data = zarr.open(
         store,
-        mode="w",
-        shape=(9000, 10000),
-        chunks=(900, 1000),
-        dtype="i4",
+        mode="r",
+        # ho to handle chunking ?
+        # shape=(9000, 10000),
+        # chunks=(900, 1000),
+        dtype="float64",
         path=uri_data,
     )
     return data

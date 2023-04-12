@@ -9,9 +9,7 @@ from uri_matching import match_uri, open_metadata_store, extract_dataset
 # ----------------------------------------------
 ###### Load in Data
 
-jsonld_file = (
-    "/Users/laurevancauwenberg/Documents/SDSC/Cat_plus/CatPlusSampleData.jsonld"
-)
+jsonld_file = "data/CatPlusSampleData.jsonld"
 
 with open(jsonld_file) as jsonld:
     dict_ld = json.load(jsonld)
@@ -69,6 +67,9 @@ uri = "http://www.catplus.ch/ontology/concepts/sample1"
 dict_metadata = open_metadata_store("data/test_store.zarr/.all_metadata")
 key_uri = match_uri(uri, dict_metadata)
 dataset = extract_dataset(key_uri, store)
+print("Data Retrieval: ")
+print(dataset[1:10])
+print("***")
 
 
 # LOADS ENTIRE STORE THAT IS CONSOLIDATED

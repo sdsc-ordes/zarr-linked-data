@@ -1,5 +1,6 @@
 import zarr
 import re
+import numpy as np
 
 
 def create_synthetic_hierarchy(
@@ -38,11 +39,14 @@ def create_synthetic_hierarchy(
                     # then allocate data
                     locals()[name + "Dataset"] = locals()[name].create_dataset(
                         name + "Dataset",
-                        shape=(9000, 1000),
-                        chunks=(900, 100),
-                        dtype="i4",
+                        data=np.random.rand(9000, 1000),
+                        # shape=(9000, 1000),
+                        chunks=(900,),
+                        dtype="float64",
                     )
-                    # locals()[name + 'Dataset'][:] = 42
+                    print("CHECK Data Creation: ")
+                    print(locals()[name + "Dataset"][1:10])
+                    print("***")
     return locals()[mother_group_name]
 
 
