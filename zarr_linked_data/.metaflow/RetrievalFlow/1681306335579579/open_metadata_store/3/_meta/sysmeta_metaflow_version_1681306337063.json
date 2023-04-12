@@ -1,0 +1,1 @@
+{"flow_id": "RetrievalFlow", "run_number": "1681306335579579", "step_name": "open_metadata_store", "task_id": "3", "field_name": "metaflow_version", "type": "metaflow_version", "value": "2.8.2", "tags": ["attempt_id:0"], "user_name": "laurevancauwenberg", "ts_epoch": 1681306337063}

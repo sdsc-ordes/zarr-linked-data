@@ -1,21 +1,18 @@
 import zarr
-import json
 
 # import rdflib
 # from rdflib.term import URIRef
-from helpers import create_synthetic_hierarchy, allocate_metadata
+from make_synthetic_data import make_synthetic_data
 from uri_matching import match_uri, open_metadata_store, extract_dataset
 
 # ----------------------------------------------
-###### Load in Data
+###### MAKE SYNTHETIC DATA
+# ----------------------------------------------
+###### Parameters for synthetic data
 
 jsonld_file = "data/CatPlusSampleData.jsonld"
+path_for_store = "data/test_store.zarr"
 
-with open(jsonld_file) as jsonld:
-    dict_ld = json.load(jsonld)
-
-# ----------------------------------------------
-###### Parameters for fu
 levels = [
     "Campaign",
     "Batch",
@@ -26,37 +23,15 @@ levels = [
 ]
 prefix = "http://www.catplus.ch/ontology/concepts/"
 data_level = "Sample"
-
 # ----------------------------------------------
-###### Step 0: Storage
-
-# Option 1: DirectoryStore
-store = zarr.DirectoryStore("data/test_store.zarr")
-
-# Option 2: SQLiteStore
-# store = zarr.SQLiteStore('data/test_store_SQLite.sqldb')
-
-# ----------------------------------------------
-###### Step 1 : Build the hierarchy
-
-myCampaign = create_synthetic_hierarchy(
-    levels, data_level, dict_ld, prefix, "myCampaign", store
-)
-# Tree:
-print(myCampaign.tree())
-
-# ----------------------------------------------
-###### Step 2: Allocate Metadata
-myCampaign = allocate_metadata(dict_ld, myCampaign)
-
-# ----------------------------------------------
-######  Close store
-store.close()
+# Q: is there 1 big store or multiple stores
+# and then the URI needs to be searched for in a specific store or accross multiple stores?
+make_synthetic_data(path_for_store, jsonld_file, prefix, levels, data_level)
 
 # ----------------------------------------------
 ###### Create Metadata Store
 metadata_store = zarr.convenience.consolidate_metadata(
-    store, metadata_key=".all_metadata"
+    path_for_store, metadata_key=".all_metadata"
 )
 
 
@@ -66,7 +41,7 @@ uri = "http://www.catplus.ch/ontology/concepts/sample1"
 
 dict_metadata = open_metadata_store("data/test_store.zarr/.all_metadata")
 key_uri = match_uri(uri, dict_metadata)
-dataset = extract_dataset(key_uri, store)
+dataset = extract_dataset(key_uri, path_for_store)
 print("Data Retrieval: ")
 print(dataset[1:10])
 print("***")

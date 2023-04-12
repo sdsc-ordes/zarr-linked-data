@@ -30,7 +30,7 @@ def match_uri(uri, dict_metadata):
                 return key_uri
 
 
-def extract_dataset(metadata_path, store):
+def extract_dataset(metadata_path, path_store):
     """Extract the dataset attached to the metadata path/key.
     Parameters:
     metadata_path (str): path to to the dataset specified in the metadata
@@ -45,14 +45,14 @@ def extract_dataset(metadata_path, store):
 
     # two options: path or store
     # option 1
-    # data = zarr.open("data/test_store.zarr/" + uri_data,
+    # data = zarr.open(path_store + "/" + uri_data,
     #                 mode='r',
     #                 #shape=(9000, 10000),
     #                 #chunks=(900, 1000),
     #                 dtype='float64')
     # option 2
     data = zarr.open(
-        store,
+        path_store,
         mode="r",
         # ho to handle chunking ?
         # shape=(9000, 10000),
