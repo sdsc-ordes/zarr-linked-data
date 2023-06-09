@@ -1,1 +1,0 @@
-{"flow_id": "MetadataConsolidateFlow", "run_number": "1681307203980355", "step_name": "end", "task_id": "3", "field_name": "ds-root", "type": "ds-root", "value": "/Users/laurevancauwenberg/Documents/GitHub/zarr_linked_data/zarr_linked_data/.metaflow", "tags": ["attempt_id:0"], "user_name": "laurevancauwenberg", "ts_epoch": 1681307205475}

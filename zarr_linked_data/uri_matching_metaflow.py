@@ -1,6 +1,6 @@
 import json
 import zarr
-from metaflow import FlowSpec, step, Parameter
+from metaflow import FlowSpec, step, Parameter, current
 
 
 class RetrievalFlow(FlowSpec):
@@ -12,19 +12,28 @@ class RetrievalFlow(FlowSpec):
     """
 
     uri = Parameter(
-        "uri", help="The URI referencing the dataset object which should be retrieved."
+        "uri",
+        # type="str",
+        help="The URI referencing the dataset object which should be retrieved.",
     )
-    path_store = Parameter(
-        "path_store", help="The path to the Zarr Store where the dataset is stored."
-    )
+    # path_store = Parameter(
+    #     "path_store", type="str",
+    #     help="The path to the Zarr Store where the dataset is stored."
+    # )
 
     @step
     def start(self):
         """Start the retrieval flow."""
-        print(
-            "Looking for the following URI [%s] in the metadata of the following store: %s"
-            % (self.uri, self.path_store)
-        )
+        # print(
+        #     "Looking for the following URI [%s] in the metadata of the following store: %s"
+        #     % (self.uri, self.path_store)
+        # )
+        # zarr.convenience.consolidate_metadata(
+        #         store="../data/test_store.zarr"
+        #         #store=str(path_store),
+        #         #metadata_key=".all_metadata"
+        #     )
+        self.path_store = "../data/test_store.zarr"
         self.path_metadata_store = self.path_store + "/.all_metadata"
         self.next(self.open_metadata_store)
 

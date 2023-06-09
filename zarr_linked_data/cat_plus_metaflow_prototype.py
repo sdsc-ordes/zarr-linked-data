@@ -31,13 +31,13 @@ if __name__ == "__main__":
     ###### CONSOLIDATE METADATA FLOW
     # ----------------------------------------------
     # BIG ISSUE: how to automate this if not compatible with metaflow ?
-    metadata_store = zarr.convenience.consolidate_metadata(
-        path_for_store, metadata_key=".all_metadata"
-    )
+    # zarr.convenience.consolidate_metadata(
+    #     path_for_store, metadata_key=".all_metadata"
+    # )
 
     # The consolidation flow is not functional:
     # it renders no errors but no metadata store is created.
-    # MetadataConsolidateFlow()
+    MetadataConsolidateFlow()
 
     # ----------------------------------------------
     ###### RETRIEVAL FLOW
@@ -46,4 +46,4 @@ if __name__ == "__main__":
     # test call terminal:
     # python cat_plus_metaflow_prototype.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_store "../data/test_store.zarr"
 
-    data = RetrievalFlow()
+    # data = RetrievalFlow()
