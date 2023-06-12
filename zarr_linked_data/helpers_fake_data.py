@@ -3,7 +3,7 @@ import re
 import numpy as np
 
 
-def create_synthetic_hierarchy(
+def create_fake_hierarchy(
     levels, data_level, dict_ld, prefix, mother_group_name, store
 ):
     """Create a synthetic hierarchy of entities/groups and datasets in a zarr store.

@@ -1,9 +1,9 @@
 import zarr
 import json
-from helpers_synthetic_data import create_synthetic_hierarchy, allocate_metadata
+from zarr_linked_data.helpers_fake_data import create_fake_hierarchy, allocate_metadata
 
 
-def make_synthetic_data(path_for_store, jsonld_file, prefix, levels, data_level):
+def make_fake_data(path_for_store, jsonld_file, prefix, levels, data_level):
 
     with open(jsonld_file) as jsonld:
         dict_ld = json.load(jsonld)

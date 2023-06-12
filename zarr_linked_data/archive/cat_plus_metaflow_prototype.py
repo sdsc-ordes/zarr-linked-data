@@ -1,5 +1,5 @@
 import zarr
-from make_synthetic_data import make_synthetic_data
+from zarr_linked_data.zarr_linked_data.make_synthetic_data import make_synthetic_data
 from metadata_consolidate_metaflow import MetadataConsolidateFlow
 from uri_matching_metaflow import RetrievalFlow
 
