@@ -1,4 +1,6 @@
 from zarr_linked_data.make_fake_data import make_fake_data
+from dotenv import load_dotenv
+load_dotenv()
 
 if __name__ == "__main__":
     # ----------------------------------------------

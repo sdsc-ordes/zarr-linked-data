@@ -32,11 +32,11 @@ if __name__ == "__main__":
     ###### CONSOLIDATE METADATA FLOW
     # ----------------------------------------------
     # BIG ISSUE: how to automate this if not compatible with metaflow ?
-    # path_for_store = "../data/test_store.zarr"
-    # zarr.convenience.consolidate_metadata(
-    #     path_for_store, metadata_key=".all_metadata"
-    # )
+    path_for_store = "zarr_linked_data/data/test_store.zarr"
+    zarr.convenience.consolidate_metadata(
+        path_for_store, metadata_key=".all_metadata"
+    )
 
     # The consolidation flow is not functional:
     # it renders no errors but no metadata store is created.
-    MetadataConsolidateFlow()
+    #MetadataConsolidateFlow()

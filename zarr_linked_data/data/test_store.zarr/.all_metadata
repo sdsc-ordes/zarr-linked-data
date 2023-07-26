@@ -1,0 +1,417 @@
+{
+    "metadata": {
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/myBatch",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/Batch"
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdby": [
+                {
+                    "@value": "TestUser"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasSamplePreparation": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/mySamplePrep"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/name": [
+                {
+                    "@value": "Test Batch"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/title": [
+                {
+                    "@value": "Optimization of the Suzuki coupling"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/updatedby": [
+                {
+                    "@value": "TestUser"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/updatedon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ]
+        },
+        "myBatch/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/mySamplePrep",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/SamplePreparation"
+            ],
+            "http://www.catplus.ch/ontology/concepts/beginningtime": [
+                {
+                    "@value": "2022-11-01"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/endingtime": [
+                {
+                    "@value": "2022-12-01"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasSample": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/sample1"
+                },
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/sample2"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/speedinrpm": [
+                {
+                    "@value": "700"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/startTime": [
+                {
+                    "@value": "2023-01-25_16:14:15"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/temperatureindegrees": [
+                {
+                    "@value": "25"
+                }
+            ]
+        },
+        "myBatch/mySamplePrep/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample1/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/sample1",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/Sample"
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasDataset": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/sample1Dataset"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasSampleChemical": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical1"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/vialType": [
+                {
+                    "@value": "commercial bottle"
+                }
+            ]
+        },
+        "myBatch/mySamplePrep/sample1/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample1/sample1Dataset/.zarray": {
+            "chunks": [
+                900,
+                1000
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": 0.0,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                9000,
+                1000
+            ],
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample1/sampleChemical1/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical1",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/SampleChemical"
+            ],
+            "http://www.catplus.ch/ontology/concepts/ID": [
+                {
+                    "@value": "123"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasChemical": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/chemical1"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/internalBarCode": [
+                {
+                    "@value": "001"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/lotNumber": [
+                {
+                    "@value": "001"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/physicalState": [
+                {
+                    "@value": "powder"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/predictedQuantity": [
+                {
+                    "@value": ""
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/producer": [
+                {
+                    "@value": "Sigma Aldrich"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/realQuantity": [
+                {
+                    "@value": "10"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/role": [
+                {
+                    "@value": "Reageant"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/stockedDate_deliveryDate": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#date",
+                    "@value": "2023-01-31"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/unit": [
+                {
+                    "@value": "g"
+                }
+            ]
+        },
+        "myBatch/mySamplePrep/sample1/sampleChemical1/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample1/sampleChemical1/chemical1/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample2/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/sample2",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/Sample"
+            ],
+            "http://www.catplus.ch/ontology/concepts/actiontime": [
+                {
+                    "@value": "2023-01-31-12h03m44s"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasDataset": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/sample2Dataset"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasSampleChemical": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical2"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/quantity": [
+                {
+                    "@value": "2.25"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/unit": [
+                {
+                    "@value": "mL"
+                }
+            ]
+        },
+        "myBatch/mySamplePrep/sample2/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample2/sample2Dataset/.zarray": {
+            "chunks": [
+                900,
+                1000
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": 0.0,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                9000,
+                1000
+            ],
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample2/sampleChemical2/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical2",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/SampleChemical"
+            ],
+            "http://www.catplus.ch/ontology/concepts/ID": [
+                {
+                    "@value": "128"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/createdon": [
+                {
+                    "@value": "2023-01-25_16:14:14"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/hasChemical": [
+                {
+                    "@id": "http://www.catplus.ch/ontology/concepts/chemical2"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/internalBarCode": [
+                {
+                    "@value": "002"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/lotNumber": [
+                {
+                    "@value": "002"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/physicalState": [
+                {
+                    "@value": "liquid"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/predictedQuantity": [
+                {
+                    "@value": "1"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/producer": [
+                {
+                    "@value": "Sigma Aldrich"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/realQuantity": [
+                {
+                    "@value": ""
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/role": [
+                {
+                    "@value": "solvent"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/stockedDate_deliveryDate": [
+                {
+                    "@value": "2023-01-30"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/unit": [
+                {
+                    "@value": "L"
+                }
+            ]
+        },
+        "myBatch/mySamplePrep/sample2/sampleChemical2/.zgroup": {
+            "zarr_format": 2
+        },
+        "myBatch/mySamplePrep/sample2/sampleChemical2/chemical2/.zattrs": {
+            "@id": "http://www.catplus.ch/ontology/concepts/chemical2",
+            "@type": [
+                "http://www.catplus.ch/ontology/concepts/Chemical"
+            ],
+            "http://www.catplus.ch/ontology/concepts/CASNumber": [
+                {
+                    "@value": "75-05-8"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/ID": [
+                {
+                    "@value": "145"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/SwissCatNumber": [
+                {
+                    "@value": ""
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/inchi": [
+                {
+                    "@value": "InChi=1S/C2H3N/c1-2-3/h1H3"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/inchikey": [
+                {
+                    "@value": "WEVYAHXRMPXWCK-HFFFAOYSA-N"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/keyWords": [
+                {
+                    "@value": "acetonitrile, nitrile, acetone, chemicals"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/molecularFormula": [
+                {
+                    "@value": "CH3CN"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/molecularWeight": [
+                {
+                    "@value": "41.05"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/name": [
+                {
+                    "@value": "acetonitrile"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/smiles": [
+                {
+                    "@value": "CC#N"
+                }
+            ],
+            "http://www.catplus.ch/ontology/concepts/type": [
+                {
+                    "@value": ""
+                }
+            ]
+        },
+        "myBatch/mySamplePrep/sample2/sampleChemical2/chemical2/.zgroup": {
+            "zarr_format": 2
+        }
+    },
+    "zarr_consolidated_format": 1
+}
