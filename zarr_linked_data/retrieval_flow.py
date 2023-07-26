@@ -1,6 +1,8 @@
 import json
 import zarr
 from metaflow import FlowSpec, step, Parameter, current
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class RetrievalFlow(FlowSpec):
@@ -108,5 +110,7 @@ if __name__ == "__main__":
     # test_uri = "http://www.catplus.ch/ontology/concepts/sample1"
     # test call terminal:
     # python cat_plus_metaflow_prototype.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_store "../data/test_store.zarr"
+
+    #python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create --datastore=s3
 
     data = RetrievalFlow()

@@ -1,5 +1,7 @@
 import zarr
 from metaflow import FlowSpec, step
+from dotenv import load_dotenv
+load_dotenv()
 
 # from metaflow import Parameter
 
