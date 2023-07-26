@@ -1,0 +1,67 @@
+{
+    "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical1",
+    "@type": [
+        "http://www.catplus.ch/ontology/concepts/SampleChemical"
+    ],
+    "http://www.catplus.ch/ontology/concepts/ID": [
+        {
+            "@value": "123"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/createdon": [
+        {
+            "@value": "2023-01-25_16:14:14"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/hasChemical": [
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/chemical1"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/internalBarCode": [
+        {
+            "@value": "001"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/lotNumber": [
+        {
+            "@value": "001"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/physicalState": [
+        {
+            "@value": "powder"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/predictedQuantity": [
+        {
+            "@value": ""
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/producer": [
+        {
+            "@value": "Sigma Aldrich"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/realQuantity": [
+        {
+            "@value": "10"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/role": [
+        {
+            "@value": "Reageant"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/stockedDate_deliveryDate": [
+        {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-01-31"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/unit": [
+        {
+            "@value": "g"
+        }
+    ]
+}

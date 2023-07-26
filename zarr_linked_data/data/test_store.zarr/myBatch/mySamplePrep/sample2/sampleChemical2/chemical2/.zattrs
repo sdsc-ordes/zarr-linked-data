@@ -1,0 +1,61 @@
+{
+    "@id": "http://www.catplus.ch/ontology/concepts/chemical2",
+    "@type": [
+        "http://www.catplus.ch/ontology/concepts/Chemical"
+    ],
+    "http://www.catplus.ch/ontology/concepts/CASNumber": [
+        {
+            "@value": "75-05-8"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/ID": [
+        {
+            "@value": "145"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/SwissCatNumber": [
+        {
+            "@value": ""
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/inchi": [
+        {
+            "@value": "InChi=1S/C2H3N/c1-2-3/h1H3"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/inchikey": [
+        {
+            "@value": "WEVYAHXRMPXWCK-HFFFAOYSA-N"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/keyWords": [
+        {
+            "@value": "acetonitrile, nitrile, acetone, chemicals"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/molecularFormula": [
+        {
+            "@value": "CH3CN"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/molecularWeight": [
+        {
+            "@value": "41.05"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/name": [
+        {
+            "@value": "acetonitrile"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/smiles": [
+        {
+            "@value": "CC#N"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/type": [
+        {
+            "@value": ""
+        }
+    ]
+}

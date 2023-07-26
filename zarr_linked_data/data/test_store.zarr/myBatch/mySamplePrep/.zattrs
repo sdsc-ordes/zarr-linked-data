@@ -1,0 +1,44 @@
+{
+    "@id": "http://www.catplus.ch/ontology/concepts/mySamplePrep",
+    "@type": [
+        "http://www.catplus.ch/ontology/concepts/SamplePreparation"
+    ],
+    "http://www.catplus.ch/ontology/concepts/beginningtime": [
+        {
+            "@value": "2022-11-01"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/createdon": [
+        {
+            "@value": "2023-01-25_16:14:14"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/endingtime": [
+        {
+            "@value": "2022-12-01"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/hasSample": [
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/sample1"
+        },
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/sample2"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/speedinrpm": [
+        {
+            "@value": "700"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/startTime": [
+        {
+            "@value": "2023-01-25_16:14:15"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/temperatureindegrees": [
+        {
+            "@value": "25"
+        }
+    ]
+}

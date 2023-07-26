@@ -20,7 +20,7 @@ def make_fake_data(path_for_store, jsonld_file, prefix, levels, data_level):
     # ----------------------------------------------
     ###### Step 1 : Build the hierarchy
 
-    myCampaign = create_synthetic_hierarchy(
+    myCampaign = create_fake_hierarchy(
         levels, data_level, dict_ld, prefix, "myCampaign", store
     )
     # Tree:

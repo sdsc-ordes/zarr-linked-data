@@ -1,0 +1,66 @@
+{
+    "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical2",
+    "@type": [
+        "http://www.catplus.ch/ontology/concepts/SampleChemical"
+    ],
+    "http://www.catplus.ch/ontology/concepts/ID": [
+        {
+            "@value": "128"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/createdon": [
+        {
+            "@value": "2023-01-25_16:14:14"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/hasChemical": [
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/chemical2"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/internalBarCode": [
+        {
+            "@value": "002"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/lotNumber": [
+        {
+            "@value": "002"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/physicalState": [
+        {
+            "@value": "liquid"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/predictedQuantity": [
+        {
+            "@value": "1"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/producer": [
+        {
+            "@value": "Sigma Aldrich"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/realQuantity": [
+        {
+            "@value": ""
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/role": [
+        {
+            "@value": "solvent"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/stockedDate_deliveryDate": [
+        {
+            "@value": "2023-01-30"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/unit": [
+        {
+            "@value": "L"
+        }
+    ]
+}

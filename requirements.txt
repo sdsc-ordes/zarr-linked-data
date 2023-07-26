@@ -2,5 +2,5 @@
 zarr == 2.14.2
 pyld == 2.0.3
 h5py == 3.8.0
-fsspec == 2023.3.0
+fsspec == 2022.5.0
 metaflow == 2.8.2

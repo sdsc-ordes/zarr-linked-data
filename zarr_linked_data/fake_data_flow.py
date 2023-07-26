@@ -6,8 +6,8 @@ if __name__ == "__main__":
     # ----------------------------------------------
     ###### Parameters for fake data
 
-    jsonld_file = "../data/CatPlusSampleData.jsonld"
-    path_for_store = "../data/test_store.zarr"
+    jsonld_file = "zarr_linked_data/data/original_data.jsonld"
+    path_for_store = "zarr_linked_data/data/test_store.zarr"
 
     levels = [
         "Campaign",

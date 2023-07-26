@@ -1,0 +1,36 @@
+{
+    "@id": "http://www.catplus.ch/ontology/concepts/sample2",
+    "@type": [
+        "http://www.catplus.ch/ontology/concepts/Sample"
+    ],
+    "http://www.catplus.ch/ontology/concepts/actiontime": [
+        {
+            "@value": "2023-01-31-12h03m44s"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/createdon": [
+        {
+            "@value": "2023-01-25_16:14:14"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/hasDataset": [
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/sample2Dataset"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/hasSampleChemical": [
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/sampleChemical2"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/quantity": [
+        {
+            "@value": "2.25"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/unit": [
+        {
+            "@value": "mL"
+        }
+    ]
+}

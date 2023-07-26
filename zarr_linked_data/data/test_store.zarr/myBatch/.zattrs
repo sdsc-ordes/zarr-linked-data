@@ -1,0 +1,41 @@
+{
+    "@id": "http://www.catplus.ch/ontology/concepts/myBatch",
+    "@type": [
+        "http://www.catplus.ch/ontology/concepts/Batch"
+    ],
+    "http://www.catplus.ch/ontology/concepts/createdby": [
+        {
+            "@value": "TestUser"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/createdon": [
+        {
+            "@value": "2023-01-25_16:14:14"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/hasSamplePreparation": [
+        {
+            "@id": "http://www.catplus.ch/ontology/concepts/mySamplePrep"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/name": [
+        {
+            "@value": "Test Batch"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/title": [
+        {
+            "@value": "Optimization of the Suzuki coupling"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/updatedby": [
+        {
+            "@value": "TestUser"
+        }
+    ],
+    "http://www.catplus.ch/ontology/concepts/updatedon": [
+        {
+            "@value": "2023-01-25_16:14:14"
+        }
+    ]
+}
