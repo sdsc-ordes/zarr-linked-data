@@ -9,7 +9,6 @@ __pycache__/
 # Distribution / packaging
 .Python
 .DS_Store
-data/
 build/
 develop-eggs/
 dist/
