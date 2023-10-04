@@ -1,9 +1,8 @@
 import json
 import zarr
-from metaflow import FlowSpec, step, Parameter, current
+from metaflow import FlowSpec, step, Parameter, current, kubernetes
 from dotenv import load_dotenv
 load_dotenv()
-
 
 class RetrievalFlow(FlowSpec):
     """Given an input URI look for the corresponding instance in the metadata store and extract the associated data.
@@ -23,7 +22,8 @@ class RetrievalFlow(FlowSpec):
     #     help="The path to the Zarr Store where the dataset is stored."
     # )
 
-    @step
+    @kubernetes(secrets=["argo-artifacts"])
+    @step 
     def start(self):
         """Start the retrieval flow."""
         # print(
@@ -39,6 +39,7 @@ class RetrievalFlow(FlowSpec):
         self.path_metadata_store = self.path_store + "/.all_metadata"
         self.next(self.open_metadata_store)
 
+    @kubernetes(secrets=["argo-artifacts"])
     @step
     def open_metadata_store(self):
         """Open a zarr metadata store and returns it in a dictionary format."""
@@ -52,6 +53,7 @@ class RetrievalFlow(FlowSpec):
             )
         self.next(self.match_uri)
 
+    @kubernetes(secrets=["argo-artifacts"])
     @step
     def match_uri(self):
         """Match a URI to an @id in a dictionary and extract the associated key i.e. store path.
@@ -67,6 +69,7 @@ class RetrievalFlow(FlowSpec):
             print("Could not find URI in the metadata. Check that `uri` is correct.")
         self.next(self.extract_dataset)
 
+    @kubernetes(secrets=["argo-artifacts"])
     @step
     def extract_dataset(self):
         """Extract the dataset attached to the metadata path/key."""
@@ -98,6 +101,7 @@ class RetrievalFlow(FlowSpec):
             )
         self.next(self.end)
 
+    @kubernetes(secrets=["argo-artifacts"])
     @step
     def end(self):
         """End the flow and return associted data."""
@@ -109,7 +113,8 @@ if __name__ == "__main__":
     # ----------------------------------------------
     # test_uri = "http://www.catplus.ch/ontology/concepts/sample1"
     # test call terminal:
-    # python cat_plus_metaflow_prototype.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_store "../data/test_store.zarr"
+    # step 1: python zarr_linked_data/retrieval_flow.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" 
+    # step 2: python zarr_linked_data/retrieval_flow.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_store "../data/test_store.zarr"
 
     #python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create --datastore=s3
 

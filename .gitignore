@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Metaflow
+*.metaflow
+
 # Distribution / packaging
 .Python
 .DS_Store
