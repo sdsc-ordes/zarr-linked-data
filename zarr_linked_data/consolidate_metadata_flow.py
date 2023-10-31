@@ -1,5 +1,6 @@
-from metaflow import FlowSpec, step, current, Parameter
+from metaflow import FlowSpec, step, current, Parameter, schedule
 
+@schedule(daily=True)
 class MetadataConsolidateFlow(FlowSpec):
 
     path_for_store = Parameter(
