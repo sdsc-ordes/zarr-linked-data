@@ -2,7 +2,7 @@ import s3fs
 import zarr
 import os 
 
-def store_downloader(): 
+def downloader(): 
     # use fsspec instead? 
 
     s3 = s3fs.S3FileSystem(
@@ -14,16 +14,20 @@ def store_downloader():
     # files = s3.ls(bucket)
     # print(files)
 
-    # test getting access to the store and check the hierarchy
     store = s3fs.S3Map(root='argobucket/zarr_linked_data/data/test_store.zarr', s3=s3, check=False)
-    data = zarr.group(store=store)
-    print(data.tree())
-    print(data.info)
+    
+    # test getting access to the store and check the hierarchy
+    # data = zarr.group(store=store)
+    # print(data.tree())
+    # print(data.info)
 
     # test accessing the metadata only 
-    metadata = zarr.open_consolidated(store, metadata_key=".all_metadata") 
-    print(metadata.tree())
-    print(metadata.info)
+    # metadata = zarr.open_consolidated(store, metadata_key=".all_metadata") 
+    # print(metadata.tree())
+    # print(metadata.info)
 
-if __name__ == "__main__":
-    store_downloader()
+    return(store)
+
+#for testing, to run the script
+# if __name__ == "__main__":
+#     downloader()

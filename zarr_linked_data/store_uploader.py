@@ -6,7 +6,7 @@ import os
 
 
 
-def store_uploader(bucket_name, store_path):
+def uploader(bucket_name, store_path):
 
     # Create a client with the MinIO server playground, its access key
     # and secret key.
@@ -41,6 +41,6 @@ if __name__ == "__main__":
     store_path = "zarr_linked_data/data/test_store.zarr"
     
     try:
-        store_uploader(bucket_name, store_path)
+        uploader(bucket_name, store_path)
     except S3Error as exc:
         print("error occurred.", exc)
