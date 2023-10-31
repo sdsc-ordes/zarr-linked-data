@@ -4,5 +4,7 @@ kubernetes == 27.2.0
 zarr == 2.14.2
 pyld == 2.0.3
 h5py == 3.8.0
-fsspec == 2022.5.0
+#fsspec == 2022.5.0
 metaflow == 2.8.2
+minio == 7.1.17
+s3fs == 2023.10.0
