@@ -1,4 +1,4 @@
-from metaflow import FlowSpec, step, current, Parameter, schedule, secrets
+from metaflow import FlowSpec, step, current, Parameter, schedule, kubernetes
 
 @schedule(daily=True)
 class MetadataConsolidateFlow(FlowSpec):
@@ -8,7 +8,7 @@ class MetadataConsolidateFlow(FlowSpec):
         help="The path to the Zarr Store who's metadata we want to consolidate into a Zarr MetadataStore.",
     )
 
-    @secrets(sources=['argo-artifacts'])
+    @kubernetes(secrets='argo-artifacts', service_account='argo')
     @step
     def start(self):
         """Download the store."""
@@ -22,7 +22,7 @@ class MetadataConsolidateFlow(FlowSpec):
         self.store = s3fs.S3Map(root='argobucket/zarr_linked_data/data/test_store.zarr', s3=s3, check=False)
         self.next(self.consolidate)
 
-    @secrets(sources=['argo-artifacts'])
+    @kubernetes(secrets='argo-artifacts', service_account='argo')
     @step
     def consolidate(self):
         """Consolidate metadata."""
