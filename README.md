@@ -80,6 +80,7 @@ Then you just install the requirements with `pip install -r requirements.txt` an
 
 ## Fake Zarr Data
 You may not have data under the zarr format yet. You can define some metadata instance objects (such as in `zarr_linked_data/data/original_data.jsonld`), then define your hierarchy levels, data level and other parameters for the creation of a random Zarr test store using `zarr_linked_data/fake_data_flow.py`.
+You can find all our example data in the `data` folder, from the original jsonld metadata instance data, to the `test_store.zarr` containing random arrays as well as the jsonld metadata.
 
 ## Local scripts
 
