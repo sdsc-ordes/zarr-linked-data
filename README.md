@@ -65,6 +65,7 @@ Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding 
 ### Set up an IDE (optional)
 
 If for some reason, you need/want an IDE deployed (if for example you are working on a server). Install via Helm [a vscode service](https://artifacthub.io/packages/helm/inseefrlab/vscode) then access by port-forwarding `kubectl -n argo port-forward deployment/my-vscode 35547:8080`. You will probably have to give admin rights to this VSCode (service account: `my-vscode` over MinIO (as done for Argo)). Finally, you will also have to add Metaflow configuration variables to the ConfigMap of VSCode, for putting metaflow code packages in MinIO. 
+
 ![configmap-my-vscode-configmaps3metaflow](https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/498a1306-5289-4527-9cfa-22e947d555e3)
 
 Then you just have to pip install requirements, as for Local dev and you're set to go. 
@@ -76,18 +77,18 @@ You may not have data under the zarr format yet. You can define some metadata in
 
 ## Local scripts
 
-- Explore Zarr group and attributes functionalities in `zarr_linked_data/local_dev/zarr_explore.py`
-- Fake data creation pipeline in: `zarr_linked_data/fake_data_flow.py`
-- Metadata consolidation Metaflow pipeline in: `zarr_linked_data/local_dev/consolidate_metadata_flow.py`
-- Retrieve URI Metaflow pipeline in: `zarr_linked_data/local_dev/retrieval_flow.py`
+- Explore Zarr group and attributes functionalities with `python zarr_linked_data/local_dev/zarr_explore.py`
+- Fake data creation pipeline with: `python zarr_linked_data/fake_data_flow.py`
+- Metadata consolidation Metaflow pipeline with: `python zarr_linked_data/local_dev/consolidate_metadata_flow.py run`
+- Retrieve URI Metaflow pipeline with: `python zarr_linked_data/local_dev/retrieval_flow.py run`
 
 ## Scripts on kubernetes
 
-- Fake data creation pipeline in: `zarr_linked_data/fake_data_flow.py` (same as for locally)
-- Metadata consolidation Metaflow pipeline in: `zarr_linked_data/consolidate_metadata_flow.py`
-- Retrieve URI Metaflow pipeline in: `zarr_linked_data/retrieval_flow.py`
+- Fake data creation pipeline with: `python zarr_linked_data/fake_data_flow.py` (same as for locally)
+- Metadata consolidation Metaflow pipeline with: `python zarr_linked_data/consolidate_metadata_flow.py run`
+- Retrieve URI Metaflow pipeline with: `python zarr_linked_data/retrieval_flow.py run`
 
-You can check the correct run of the metaflow flows with the command specified in the script. Then you will need to send them to Argo workflows. [Using Metaflow to create Argo DAGs](https://docs.metaflow.org/production/scheduling-metaflow-flows/scheduling-with-argo-workflows): `python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create`
+You can check the correct run of the metaflow flows with the command specified in the script. Then you will need to send them to Argo workflows. [Using Metaflow to create Argo DAGs](https://docs.metaflow.org/production/scheduling-metaflow-flows/scheduling-with-argo-workflows): `python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create` (same for `consolidate_metadata_flow`)
 
 # Roadmap
 
