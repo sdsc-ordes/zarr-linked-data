@@ -23,5 +23,52 @@ The *main functionalities* that were implemented in this project were:
 
 # B. Getting Started
 
+## Locally (without k8)
+
+## With kubernetes
+
+You will be using the manifests in the `manifest` folder.
+
+### Set up a cluster
+
+Install [minikube](https://minikube.sigs.k8s.io/docs/start/) (really for simple prototyping) or [K3S](https://k3s.io) (already production oriented). 
+This project used minikube.
+
+In this cluster create a namespace where you will be deploying all your other components. In our project it is called `argo`.
+
+### Set up an S3 storage
+
+We will need a storage for our fake data, for metaflow flow packaging, and for Argo artifacts (more below). You can use `argo-minio.yaml` [in the manifests folder](manifests/argo-minio.yaml) or set-up your own [via the MinIO documentation (for prototyping)](https://min.io/docs/minio/kubernetes/upstream/index.html)
+
+Create a secret for allowing other services to access MinIO and its bucket storage: 
+```
+kubectl create secret generic argo-artifacts
+--from-literal=accesskey=XXXXXXX
+--from-literal=secretkey=XXXXXXXXXXXXXXX
+-n argo
+```
+
+### Set up Argo for automation
+
+Installation: 
+1. [This installation was used](https://argoproj.github.io/argo-workflows/quick-start/): `kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.4.8/install.yaml`
+2. Argo deployment is launched with: `kubectl -n argo port-forward deployment/argo-server 2746:2746` 
+
+Artifact Repository: 
+Argo needs an artifact repository (storage for flows to run). Here we will use MinIO that we previously installed. You can use the `artifact-repositories.yaml` [in the manifests folder](manifests/artifact-repositories.yaml)
+(The secret for minio we created before comes in here). You can set it up with: `kubectl apply -f artifact-repositories.yaml`
+
+Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding argo-default-admin --clusterrole=admin --serviceaccount=argo:default --namespace=argo` (we also had to repete this rolebinding creating for argo and argo-server service accounts in the argo namespace. This rolebinding may have to be revised in a production environment where an admin role could be problematic.)
+
+
+Create artifact repository using yaml : (should look like image)
+
+
+
+### Set up an IDE (optional)
+
+
+
+
 # C. Example/Usage
 The system is under development
