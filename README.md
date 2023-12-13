@@ -1,10 +1,12 @@
 # Zarr Linked Data
 
-The project seeks to make *a dataflow composed both of the Zarr data format and linked metadata (JSON-LD)*.
+The project seeks to make **a dataflow composed both of the Zarr data format and linked metadata (JSON-LD)**.
 
-The current *infrastructure prototype* implementation is kubernetes based, requiring Metaflow for code pipelines, MinIO for storage and Argo for automation. 
+The current **infrastructure prototype** implementation is kubernetes based, requiring Metaflow for code pipelines, MinIO for storage and Argo for automation. 
 
-The project is a prototype infrastructure *under construction* and is still incomplete. Its components needs to be assessed and adapted to a new use-case before being used.  
+The project is a prototype infrastructure **under construction** and is still incomplete. Its components needs to be assessed and adapted to a new use-case before being used.  
+
+<img width="919" alt="Screenshot 2023-12-13 at 15 04 29" src="https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/ed7153f0-e22b-46a9-bf1f-fffb3a7f5445">
 
 The following section describe the project further: 
 - A. Project Description 
@@ -93,6 +95,6 @@ You can check the correct run of the metaflow flows with the command specified i
 # Roadmap
 
 - Retrieval flow will be converted to a FastAPI instead
-- A flow will be added to prep the consolidated metadata for being added to a graph database (such as GraphDB or ApacheJenaFuseki): local development of [this flow is on an annex branch here](https://github.com/SDSC-ORD/zarr-linked-data/blob/metadata_extractor/zarr_linked_data/extract_all_metadata.py)
+- A flow `metadata update` will be added: it will transform the consolidated metadata and add it to a graph database (such as GraphDB or ApacheJenaFuseki): local development of [this flow is on an annex branch here](https://github.com/SDSC-ORD/zarr-linked-data/blob/metadata_extractor/zarr_linked_data/extract_all_metadata.py)
 
 
