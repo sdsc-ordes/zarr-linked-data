@@ -1,7 +1,8 @@
 # Zarr Linked Data
-The project seeks to make a dataflow composed both of the Zarr data format and linked metadata (JSON-LD).
 
-The current implementation is kubernetes based, requiring Metaflow for pipeline, MinIO for storage and Argo for automation. 
+The project seeks to make *a dataflow composed both of the Zarr data format and linked metadata (JSON-LD)*.
+
+The current *infrastructure prototype* implementation is kubernetes based, requiring Metaflow for code pipelines, MinIO for storage and Argo for automation. 
 
 The project is a prototype infrastructure *under construction* and is still incomplete. Its components needs to be assessed and adapted to a new use-case before being used.  
 
