@@ -17,8 +17,8 @@ The project's main interesting features are pipelines to manipulate [Zarr data f
 This project came into being tied to the [Cat+ initiative from EPF domain in Switzerland](https://swisscatplus.ch). From a fully automated chemistry lab, numerous samples will be processed under different parameters by a variety of machines. The idea is to have the output data of this lab, and even more so the associated metadata, to be queryable and retrievable. On the long run, the idea is also to allow external sources to contribute their data to the system as well, following metadata standards. 
 
 The *main functionalities* that were implemented in this project were: 
-- Retrieve ("consolidate" in zarr jargon) all the metadata from the numerous arrays of data
-- From a metadata URI, retrieve the associated dataset in the Zarr store (ordered collection of arrays)
+- Retrieve (["consolidate"](https://zarr.readthedocs.io/en/stable/tutorial.html#consolidating-metadata) in zarr jargon) all the metadata from the numerous arrays of data
+- From a metadata Universal Resource Identifier [URI](https://www.w3.org/wiki/URI), retrieve the associated dataset in the [Zarr store](https://zarr.readthedocs.io/en/stable/api/storage.html)
 
 # B. Getting Started
 
