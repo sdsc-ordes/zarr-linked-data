@@ -101,5 +101,6 @@ You can check the correct run of the metaflow flows with the command specified i
 
 - Retrieval flow will be converted to a FastAPI instead
 - A flow `metadata update` will be added: it will transform the consolidated metadata and add it to a graph database (such as GraphDB or ApacheJenaFuseki): local development of [this flow is on an annex branch here](https://github.com/SDSC-ORD/zarr-linked-data/blob/metadata_extractor/zarr_linked_data/extract_all_metadata.py)
+- Monitoring / tests of the different automated steps
 
 
