@@ -25,6 +25,8 @@ The *main functionalities* that were implemented in this project were:
 
 ## Locally (without k8)
 
+Install the requirements with `pip install -r requirements.txt`.
+
 ## With kubernetes
 
 You will be using the manifests in the `manifest` folder.
@@ -38,7 +40,7 @@ In this cluster create a namespace where you will be deploying all your other co
 
 ### Set up an S3 storage
 
-We will need a storage for our fake data, for metaflow flow packaging, and for Argo artifacts (more below). You can use `argo-minio.yaml` [in the manifests folder](manifests/argo-minio.yaml) or set-up your own [via the MinIO documentation (for prototyping)](https://min.io/docs/minio/kubernetes/upstream/index.html)
+We will need a storage for our fake data, for metaflow flow code packages, and for Argo artifacts (more below). You can use `argo-minio.yaml` [in the manifests folder](manifests/argo-minio.yaml) or set-up your own [via the MinIO documentation (for prototyping)](https://min.io/docs/minio/kubernetes/upstream/index.html)
 
 Create a secret for allowing other services to access MinIO and its bucket storage: 
 ```
@@ -58,17 +60,38 @@ Artifact Repository:
 Argo needs an artifact repository (storage for flows to run). Here we will use MinIO that we previously installed. You can use the `artifact-repositories.yaml` [in the manifests folder](manifests/artifact-repositories.yaml)
 (The secret for minio we created before comes in here). You can set it up with: `kubectl apply -f artifact-repositories.yaml`
 
-Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding argo-default-admin --clusterrole=admin --serviceaccount=argo:default --namespace=argo` (we also had to repete this rolebinding creating for argo and argo-server service accounts in the argo namespace. This rolebinding may have to be revised in a production environment where an admin role could be problematic.)
-
-
-Create artifact repository using yaml : (should look like image)
-
-
+Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding argo-default-admin --clusterrole=admin --serviceaccount=argo:default --namespace=argo` (we also had to repete this rolebinding creating for argo and argo-server service accounts in the argo namespace. This rolebinding may have to be revised in a production environment where an admin role could be problematic.
 
 ### Set up an IDE (optional)
 
+If for some reason, you need/want an IDE deployed (if for example you are working on a server). Install via Helm [a vscode service](https://artifacthub.io/packages/helm/inseefrlab/vscode) then access by port-forwarding `kubectl -n argo port-forward deployment/my-vscode 35547:8080`. You will probably have to give admin rights to this VSCode (service account: `my-vscode` over MinIO (as done for Argo)). Finally, you will also have to add Metaflow configuration variables to the ConfigMap of VSCode, for putting metaflow code packages in MinIO. 
+![configmap-my-vscode-configmaps3metaflow](https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/498a1306-5289-4527-9cfa-22e947d555e3)
 
-
+Then you just have to pip install requirements, as for Local dev and you're set to go. 
 
 # C. Example/Usage
-The system is under development
+
+## Fake Zarr Data
+You may not have data under the zarr format yet. You can define some metadata instance objects (such as in `zarr_linked_data/data/original_data.jsonld`), then define your hierarchy levels, data level and other parameters for the creation of a random Zarr test store using `zarr_linked_data/fake_data_flow.py`.
+
+## Local scripts
+
+- Explore Zarr group and attributes functionalities in `zarr_linked_data/local_dev/zarr_explore.py`
+- Fake data creation pipeline in: `zarr_linked_data/fake_data_flow.py`
+- Metadata consolidation Metaflow pipeline in: `zarr_linked_data/local_dev/consolidate_metadata_flow.py`
+- Retrieve URI Metaflow pipeline in: `zarr_linked_data/local_dev/retrieval_flow.py`
+
+## Scripts on kubernetes
+
+- Fake data creation pipeline in: `zarr_linked_data/fake_data_flow.py` (same as for locally)
+- Metadata consolidation Metaflow pipeline in: `zarr_linked_data/consolidate_metadata_flow.py`
+- Retrieve URI Metaflow pipeline in: `zarr_linked_data/retrieval_flow.py`
+
+You can check the correct run of the metaflow flows with the command specified in the script. Then you will need to send them to Argo workflows. [Using Metaflow to create Argo DAGs](https://docs.metaflow.org/production/scheduling-metaflow-flows/scheduling-with-argo-workflows): `python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create`
+
+# Roadmap
+
+- Retrieval flow will be converted to a FastAPI instead
+- A flow will be added to prep the consolidated metadata for being added to a graph database (such as GraphDB or ApacheJenaFuseki): local development of [this flow is on an annex branch here](https://github.com/SDSC-ORD/zarr-linked-data/blob/metadata_extractor/zarr_linked_data/extract_all_metadata.py)
+
+
