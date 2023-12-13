@@ -27,7 +27,11 @@ The *main functionalities* that were implemented in this project were:
 
 ## Locally (without k8)
 
-Install the requirements with `pip install -r requirements.txt`.
+Set-up you [poetry project](https://python-poetry.org/docs/#installation) using `poetry install` in the same folder as the pyproject.toml
+
+OR 
+
+Install the requirements with `pip install -r requirements.txt` (these are the requirements for the kubernetes set-up so you will have some useless packages for local dev)
 
 ## With kubernetes
 
@@ -70,7 +74,7 @@ If for some reason, you need/want an IDE deployed (if for example you are workin
 
 ![configmap-my-vscode-configmaps3metaflow](https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/498a1306-5289-4527-9cfa-22e947d555e3)
 
-Then you just have to pip install requirements, as for Local dev and you're set to go. 
+Then you just install the requirements with `pip install -r requirements.txt` and you're set to go! 
 
 # C. Example/Usage
 
