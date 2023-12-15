@@ -31,7 +31,7 @@ Set-up you [poetry project](https://python-poetry.org/docs/#installation) using 
 
 OR 
 
-Install the requirements with `pip install -r requirements.txt` (these are the requirements for the kubernetes set-up so you will have some useless packages for local dev)
+Install the requirements with `pip install -r requirements.txt` (these are the requirements for the kubernetes set-up so you will install packages which are not needed for local dev)
 
 ## With kubernetes
 
