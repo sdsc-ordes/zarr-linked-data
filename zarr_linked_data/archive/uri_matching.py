@@ -1,6 +1,11 @@
 import json
 import zarr
 
+# ----------------------------------------------
+###### ARCHIVE COMMENT
+# ----------------------------------------------
+# Code at the heart of URI matching using zarr
+# ----------------------------------------------
 
 def open_metadata_store(path_metadata_store):
     """Open a zarr metadata store and returns it in a dictionary format.

@@ -6,7 +6,7 @@ import numpy as np
 def create_fake_hierarchy(
     levels, data_level, dict_ld, prefix, mother_group_name, store
 ):
-    """Create a synthetic hierarchy of entities/groups and datasets in a zarr store.
+    """Create a fake hierarchy of entities/groups and datasets in a zarr store.
     Parameters:
     levels (list): list of levels in the hierarchy
     data_level (str): level at which data is present

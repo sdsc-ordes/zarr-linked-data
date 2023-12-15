@@ -2,13 +2,24 @@ import zarr
 
 # import rdflib
 # from rdflib.term import URIRef
-from make_synthetic_data import make_synthetic_data
+from make_fake_data import make_fake_data
 from uri_matching import match_uri, open_metadata_store, extract_dataset
 
 # ----------------------------------------------
-###### MAKE SYNTHETIC DATA
+###### ARCHIVE COMMENT
 # ----------------------------------------------
-###### Parameters for synthetic data
+# Code exploration which allowed to split up zarr operations into 2 flows: 
+# Metadata consolidation flow
+# Dataset retrieval flow
+# these can be found in local_dev for local dev
+# or directly in src folder for use on k8 infra
+# ----------------------------------------------
+
+
+# ----------------------------------------------
+###### MAKE FAKE DATA
+# ----------------------------------------------
+###### Parameters for fake data
 
 jsonld_file = "data/CatPlusSampleData.jsonld"
 path_for_store = "data/test_store.zarr"
@@ -26,7 +37,7 @@ data_level = "Sample"
 # ----------------------------------------------
 # Q: is there 1 big store or multiple stores
 # and then the URI needs to be searched for in a specific store or accross multiple stores?
-make_synthetic_data(path_for_store, jsonld_file, prefix, levels, data_level)
+make_fake_data(path_for_store, jsonld_file, prefix, levels, data_level)
 
 # ----------------------------------------------
 ###### Create Metadata Store

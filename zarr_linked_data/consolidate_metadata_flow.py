@@ -3,11 +3,6 @@ from metaflow import FlowSpec, step, current, Parameter, schedule, kubernetes
 @schedule(daily=True)
 class MetadataConsolidateFlow(FlowSpec):
 
-    path_for_store = Parameter(
-        "path_for_store",
-        help="The path to the Zarr Store who's metadata we want to consolidate into a Zarr MetadataStore.",
-    )
-
     @kubernetes(secrets='argo-artifacts', service_account='argo')
     @step
     def start(self):
@@ -31,14 +26,6 @@ class MetadataConsolidateFlow(FlowSpec):
             store=self.store,
             metadata_key=".all_metadata"
         )
-         #for local filesystem: 
-        #import zarr
-        #path_for_store = "zarr_linked_data/data/test_store.zarr"
-        # zarr.convenience.consolidate_metadata(
-        #     #store=path_for_store, 
-        #     store=self.path_for_store,
-        #     metadata_key=".all_metadata"
-        # )
         self.next(self.end)
 
     @step
@@ -51,6 +38,9 @@ if __name__ == "__main__":
 # ----------------------------------------------
     ###### CONSOLIDATE METADATA FLOW
     # ----------------------------------------------
-    # call with:
-    # python zarr_linked_data/consolidate_metadata_flow.py run --path_for_store="zarr_linked_data/data/test_store.zarr"
+    # call with: 
+    # python zarr_linked_data/consolidate_metadata_flow.py run 
+    # make an Argo DAG with: 
+    # python zarr_linked_data/consolidate_metadata_flow.py --with retry argo-workflows
+
     MetadataConsolidateFlow()

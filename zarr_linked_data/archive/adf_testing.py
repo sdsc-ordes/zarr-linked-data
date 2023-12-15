@@ -4,6 +4,14 @@ import pandas as pd
 import numpy as np
 from pkg_resources import resource_filename
 
+# ----------------------------------------------
+###### ARCHIVE COMMENT
+# ----------------------------------------------
+# Investigate another array storage file format: ADF
+# ----------------------------------------------
+
+
+
 data_path = resource_filename("cat_plus", "data/")
 
 # ex_json_path = data_path + "ExampleJSON.json"
