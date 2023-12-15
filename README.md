@@ -33,6 +33,8 @@ OR
 
 Install the requirements with `pip install -r requirements.txt` (these are the requirements for the kubernetes set-up so you will install packages which are not needed for local dev)
 
+If you want to store your data on an external S3 storage, you can use the `store_uploader.py` script to put your data onto S3 and then the `store_downloader.py` script to check how to download it.
+
 ## With kubernetes
 
 You will be using the manifests in the `manifest` folder.
@@ -55,6 +57,7 @@ kubectl create secret generic argo-artifacts
 --from-literal=secretkey=XXXXXXXXXXXXXXX
 -n argo
 ```
+If you have been working locally beforehand, you can use the `store_uploader.py` script to put your data onto S3 and then the `store_downloader.py` script to check how to download it.
 
 ### Set up Argo for automation
 
