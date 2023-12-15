@@ -4,7 +4,7 @@ The project seeks to make **a dataflow composed both of the Zarr data format and
 
 The current **infrastructure prototype** implementation is kubernetes based, requiring Metaflow for code pipelines, MinIO for storage and Argo for automation. 
 
-The project is a prototype infrastructure **under construction** and is still incomplete. Its components needs to be assessed and adapted to a new use-case before being used.  
+The project is a prototype infrastructure **under construction** and is still incomplete. Its components need to be assessed and adapted to a new use-case before being used.  
 
 <img width="919" alt="Screenshot 2023-12-13 at 15 04 29" src="https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/ed7153f0-e22b-46a9-bf1f-fffb3a7f5445">
 
