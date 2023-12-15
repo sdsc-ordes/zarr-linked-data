@@ -46,7 +46,7 @@ In this cluster create a namespace where you will be deploying all your other co
 
 ### Set up an S3 storage
 
-We will need a storage for our fake data, for metaflow flow code packages, and for Argo artifacts (more below). You can use `argo-minio.yaml` [in the manifests folder](manifests/argo-minio.yaml) or set-up your own [via the MinIO documentation (for prototyping)](https://min.io/docs/minio/kubernetes/upstream/index.html)
+We will need a storage for our fake data, for metaflow flow code packages, and for Argo artifacts (more below). You can use `argo-minio.yaml` [in the manifests folder](manifests/argo-minio.yaml) by running `kubectl apply -n argo argo-minio.yaml` or set-up your own [via the MinIO documentation (for prototyping)](https://min.io/docs/minio/kubernetes/upstream/index.html)
 
 Create a secret for allowing other services to access MinIO and its bucket storage: 
 ```
