@@ -70,7 +70,7 @@ Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding 
 
 ### Set up an IDE (optional)
 
-If for some reason, you need/want an IDE deployed (if for example you are working on a server). Install via Helm [a vscode service](https://artifacthub.io/packages/helm/inseefrlab/vscode) then access by port-forwarding `kubectl -n argo port-forward deployment/my-vscode 35547:8080`. You will probably have to give admin rights to this VSCode (service account: `my-vscode` over MinIO (as done for Argo)). Finally, you will also have to add Metaflow configuration variables to the ConfigMap of VSCode, for putting metaflow code packages in MinIO. 
+If you want an IDE deployed (e.g. working on a server). Install [a vscode service](https://artifacthub.io/packages/helm/inseefrlab/vscode) via Helm, then access by port-forwarding `kubectl -n argo port-forward deployment/my-vscode 35547:8080`. You will probably have to give admin rights to this VSCode (service account: `my-vscode` over MinIO (as done for Argo)). Finally, you will also have to add Metaflow configuration variables to the ConfigMap of VSCode, for putting metaflow code packages in MinIO. 
 
 ![configmap-my-vscode-configmaps3metaflow](https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/498a1306-5289-4527-9cfa-22e947d555e3)
 
