@@ -66,7 +66,7 @@ Artifact Repository:
 Argo needs an artifact repository (storage for flows to run). Here we will use MinIO that we previously installed. You can use the `artifact-repositories.yaml` [in the manifests folder](manifests/artifact-repositories.yaml)
 (The secret for minio we created before comes in here). You can set it up with: `kubectl apply -f artifact-repositories.yaml`
 
-Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding argo-default-admin --clusterrole=admin --serviceaccount=argo:default --namespace=argo` (we also had to repete this rolebinding creating for argo and argo-server service accounts in the argo namespace. This rolebinding may have to be revised in a production environment where an admin role could be problematic.
+Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding argo-default-admin --clusterrole=admin --serviceaccount=argo:default --namespace=argo` (we also had to repeat this rolebinding creating for argo and argo-server service accounts in the argo namespace. This role-binding may have to be revised in a production environment where an admin role could be problematic.
 
 ### Set up an IDE (optional)
 
