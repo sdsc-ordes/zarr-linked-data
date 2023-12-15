@@ -8,7 +8,7 @@ The project is a prototype infrastructure **under construction** and is still in
 
 <img width="919" alt="Screenshot 2023-12-13 at 15 04 29" src="https://github.com/SDSC-ORD/zarr-linked-data/assets/22447169/ed7153f0-e22b-46a9-bf1f-fffb3a7f5445">
 
-The following section describe the project further: 
+The following sections describe the project further: 
 - A. Project Description 
 - B. Getting Started 
 - C. Example / Usage 
