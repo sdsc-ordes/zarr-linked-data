@@ -87,10 +87,9 @@ You can find all our example data in the `data` folder, from the original jsonld
 
 ## Local scripts
 
-- Explore Zarr group and attributes functionalities with `python zarr_linked_data/local_dev/zarr_explore.py`
 - Fake data creation pipeline with: `python zarr_linked_data/fake_data_flow.py`
-- Metadata consolidation Metaflow pipeline with: `python zarr_linked_data/local_dev/consolidate_metadata_flow.py run`
-- Retrieve URI Metaflow pipeline with: `python zarr_linked_data/local_dev/retrieval_flow.py run`
+- Metadata consolidation Metaflow pipeline with: `python zarr_linked_data/local_dev/metadata_consolidate_metaflow.py run`
+- Retrieve URI Metaflow pipeline with: `python zarr_linked_data/local_dev/uri_matching_metaflow.py run`
 
 ## Local runthrough step-by-step 
 
