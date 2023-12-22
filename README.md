@@ -13,7 +13,7 @@ The following sections describe the project further:
 - B. Getting Started 
 - C. Example / Usage 
 
-# A. Project Description
+## A. Project Description
 
 The project's main interesting features are pipelines to manipulate [Zarr data formats](https://zarr.dev). Zarr files can store both data and [metadata](https://zarr.readthedocs.io/en/stable/tutorial.html#user-attributes), in a [hierarchical manner](https://zarr.readthedocs.io/en/stable/tutorial.html#groups). Zarr is best for storing any array-like data, as it allows compression and chunking. The metadata present with the data makes the Zarr file format of high interest for interoperability and findability goals of [FAIR principles](https://www.go-fair.org/fair-principles/). 
 
