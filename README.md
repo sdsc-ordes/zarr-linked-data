@@ -95,18 +95,16 @@ You can find all our example data in the `data` folder, from the original jsonld
 
 Here is a detailed run through using poetry to set-up dependencies. (Please first install poetry and run `poetry install` as explained in `B. Getting Started`).
 
-1. Start your environment with `poetry shell`
-
-2. Run: `poetry run python zarr_linked_data/fake_data_flow.py`
+1. Run: `poetry run python zarr_linked_data/fake_data_flow.py`
    Goal: You don't have any data? No problem, run this script to generate a `test_store.zarr` (You can personalize the script to make it look like the data you expect to handle.)
   
-3. Run: `poetry run python zarr_linked_Data/local_dev/metadata_consolidate_metaflow.py run --path_for_store="zarr_linked_data/data/test_store.zarr"`
+2. Run: `poetry run python zarr_linked_Data/local_dev/metadata_consolidate_metaflow.py run --path_for_store="zarr_linked_data/data/test_store.zarr"`
    Goal: Create the Zarr metadata store `.all_metadata` for the Zarr test_store i.e. a JSON file containing the metadata for the entire store.
   
-4. Run: `poetry run python zarr_linked_data/local_dev/uri_matching_metaflow.py run --path_for_store="zarr_linked_data/data/test_store.zarr" --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_save="zarr_linked_data/data/results/dataset.npy"`
+3. Run: `poetry run python zarr_linked_data/local_dev/uri_matching_metaflow.py run --path_for_store="zarr_linked_data/data/test_store.zarr" --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_save="zarr_linked_data/data/results/dataset.npy"`
    Goal: retrieve the dataset for sample1 with this URI from the Zarr test_store and save it in results folder as a Numpy file.
   
-5. Run `poetry run python zarr_linked_data/tests/test_dataset.py`
+4. Run `poetry run python zarr_linked_data/tests/test_dataset.py`
    Goal: Check your extracted dataset is readable and has expected the shape.
 
 
