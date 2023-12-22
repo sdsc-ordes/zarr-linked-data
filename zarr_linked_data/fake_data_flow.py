@@ -1,10 +1,8 @@
 from zarr_linked_data.make_fake_data import make_fake_data
-from dotenv import load_dotenv
-load_dotenv()
 
 if __name__ == "__main__":
     # ----------------------------------------------
-    ###### MAKE SYNTHETIC DATA
+    ###### MAKE FAKE DATA
     # ----------------------------------------------
     ###### Parameters for fake data
 
@@ -21,7 +19,8 @@ if __name__ == "__main__":
     ]
     prefix = "http://www.catplus.ch/ontology/concepts/"
     data_level = "Sample"
+    mother_group_name = "myCampaign"
     # ----------------------------------------------
     # Q: is there 1 big store or multiple stores??
     # and then the URI needs to be searched for in a specific store or accross multiple stores?
-    store = make_fake_data(path_for_store, jsonld_file, prefix, levels, data_level)
+    store = make_fake_data(path_for_store, jsonld_file, prefix, levels, data_level, mother_group_name)

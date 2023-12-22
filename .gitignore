@@ -9,6 +9,10 @@ __pycache__/
 # Metaflow
 *.metaflow
 
+#Data
+data/
+zarr_linked_data/data/
+
 # Distribution / packaging
 .Python
 .DS_Store

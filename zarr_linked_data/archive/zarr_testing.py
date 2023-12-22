@@ -2,7 +2,17 @@ import zarr
 import random
 import numpy as np
 
-# from ngff_writer import NGFFWriter
+
+# ----------------------------------------------
+###### ARCHIVE COMMENT
+# ----------------------------------------------
+# The goal of this script was to explore zarr functionalities. 
+# It led to the creation of the fake data pipeline 
+# in fake_data_flow.py
+# ----------------------------------------------
+
+
+
 
 # Question:
 # is user responsible of consistent chunk size? You can put any value and there is never a problem

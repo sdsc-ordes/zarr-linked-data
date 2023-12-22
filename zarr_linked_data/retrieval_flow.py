@@ -1,59 +1,49 @@
 import json
 import zarr
-from metaflow import FlowSpec, step, Parameter, current, kubernetes
-from dotenv import load_dotenv
-load_dotenv()
+from metaflow import FlowSpec, step, Parameter, current, kubernetes, trigger
 
+# IMPORTANT NOTE: it has been determined that this flow is better designed as a FastAPI than an Argo flow
+
+# The Flow triggers when MetadataConsolidateFlow ends and if there is a data retrieval event
+# @trigger(events=['metaflow.MetadataConsolidateFlow.end', 'data_retrieval'])
 class RetrievalFlow(FlowSpec):
     """Given an input URI look for the corresponding instance in the metadata store and extract the associated data.
     Parameters:
-    path_metadata_store (str): path to the metadata store
     uri (str): URI to be matched
-    store (zarr store): store where to search for the dataset
     """
 
     uri = Parameter(
         "uri",
-        # type="str",
         help="The URI referencing the dataset object which should be retrieved.",
     )
-    # path_store = Parameter(
-    #     "path_store", type="str",
-    #     help="The path to the Zarr Store where the dataset is stored."
-    # )
 
-    @kubernetes(secrets=["argo-artifacts"])
+    @kubernetes(secrets="argo-artifacts", service_account='argo')
     @step 
     def start(self):
         """Start the retrieval flow."""
-        # print(
-        #     "Looking for the following URI [%s] in the metadata of the following store: %s"
-        #     % (self.uri, self.path_store)
-        # )
-        # zarr.convenience.consolidate_metadata(
-        #         store="../data/test_store.zarr"
-        #         #store=str(path_store),
-        #         #metadata_key=".all_metadata"
-        #     )
-        self.path_store = "../data/test_store.zarr"
-        self.path_metadata_store = self.path_store + "/.all_metadata"
+        import os
+        import s3fs
+        #future enhancement, have the path store in the s3 system a parameter
+        s3 = s3fs.S3FileSystem(
+                endpoint_url=os.environ["AWS_S3_ENDPOINT"],
+                key=os.environ["AWS_ACCESS_KEY_ID"],
+                secret=os.environ["AWS_SECRET_ACCESS_KEY"])
+        self.metadata_store = s3fs.S3Map(root='argobucket/zarr_linked_data/data/test_store.zarr/.all_metadata', s3=s3, check=False)
         self.next(self.open_metadata_store)
 
-    @kubernetes(secrets=["argo-artifacts"])
+    @kubernetes(secrets="argo-artifacts", service_account='argo')
     @step
     def open_metadata_store(self):
         """Open a zarr metadata store and returns it in a dictionary format."""
         try:
-            with open(self.path_metadata_store) as all_metadata:
+            with open(self.metadata_store) as all_metadata:
                 store_metadata = json.load(all_metadata)
                 self.dict_metadata = store_metadata["metadata"]
         except ImportError:
-            print(
-                "Could not open metadata store. Check that `path_metadata_store` is correct."
-            )
+            print("Could not open metadata store.")
         self.next(self.match_uri)
 
-    @kubernetes(secrets=["argo-artifacts"])
+    @kubernetes(secrets="argo-artifacts", service_account='argo')
     @step
     def match_uri(self):
         """Match a URI to an @id in a dictionary and extract the associated key i.e. store path.
@@ -69,7 +59,7 @@ class RetrievalFlow(FlowSpec):
             print("Could not find URI in the metadata. Check that `uri` is correct.")
         self.next(self.extract_dataset)
 
-    @kubernetes(secrets=["argo-artifacts"])
+    @kubernetes(secrets="argo-artifacts", service_account='argo')
     @step
     def extract_dataset(self):
         """Extract the dataset attached to the metadata path/key."""
@@ -101,7 +91,7 @@ class RetrievalFlow(FlowSpec):
             )
         self.next(self.end)
 
-    @kubernetes(secrets=["argo-artifacts"])
+    @kubernetes(secrets="argo-artifacts", service_account='argo')
     @step
     def end(self):
         """End the flow and return associted data."""
@@ -112,10 +102,10 @@ if __name__ == "__main__":
     ###### RETRIEVAL FLOW
     # ----------------------------------------------
     # test_uri = "http://www.catplus.ch/ontology/concepts/sample1"
-    # test call terminal:
-    # step 1: python zarr_linked_data/retrieval_flow.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" 
-    # step 2: python zarr_linked_data/retrieval_flow.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_store "../data/test_store.zarr"
-
-    #python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create --datastore=s3
+    # Commands: 
+    # running the flow : 
+    # python zarr_linked_data/retrieval_flow.py run --uri "http://www.catplus.ch/ontology/concepts/sample1" 
+    # creating an Argo DAG for the flow: 
+    # python zarr_linked_data/retrieval_flow.py --with retry argo-workflows
 
     data = RetrievalFlow()
