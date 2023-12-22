@@ -23,9 +23,9 @@ The *main functionalities* that were implemented in this project were:
 - Retrieve (["consolidate"](https://zarr.readthedocs.io/en/stable/tutorial.html#consolidating-metadata) in zarr jargon) all the metadata from the numerous arrays of data
 - From a metadata Universal Resource Identifier [URI](https://www.w3.org/wiki/URI), retrieve the associated dataset in the [Zarr store](https://zarr.readthedocs.io/en/stable/api/storage.html)
 
-# B. Getting Started
+## B. Getting Started
 
-## Locally (without k8s)
+### Locally (without k8s)
 
 Set-up your [poetry project](https://python-poetry.org/docs/#installation) using `poetry install` in the same folder as the pyproject.toml
 
@@ -35,18 +35,18 @@ Install the requirements with `pip install -r requirements.txt` (these are the r
 
 If you want to store your data on an external S3 storage, you can use the `store_uploader.py` script to put your data onto S3 and then the `store_downloader.py` script to check how to download it.
 
-## With kubernetes
+### With kubernetes
 
 You will be using the manifests in the `manifest` folder.
 
-### Set up a cluster
+#### Set up a cluster
 
 Install [minikube](https://minikube.sigs.k8s.io/docs/start/) (really for simple prototyping) or [K3S](https://k3s.io) (already production oriented). 
 This project used minikube.
 
 In this cluster create a namespace where you will be deploying all your other components. In our project it is called `argo`.
 
-### Set up an S3 storage
+#### Set up an S3 storage
 
 We will need a storage for our fake data, for metaflow flow code packages, and for Argo artifacts (more below). You can use `argo-minio.yaml` [in the manifests folder](manifests/argo-minio.yaml) by running `kubectl apply -n argo argo-minio.yaml` or set-up your own [via the MinIO documentation (for prototyping)](https://min.io/docs/minio/kubernetes/upstream/index.html)
 
@@ -59,7 +59,7 @@ kubectl create secret generic argo-artifacts
 ```
 If you have been working locally beforehand, you can use the `store_uploader.py` script to put your data onto S3 and then the `store_downloader.py` script to check how to download it.
 
-### Set up Argo for automation
+#### Set up Argo for automation
 
 Installation: 
 1. [This installation was used](https://argoproj.github.io/argo-workflows/quick-start/): `kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.4.8/install.yaml`
@@ -71,7 +71,7 @@ Argo needs an artifact repository (storage for flows to run). Here we will use M
 
 Give Argo admin roles on cluster to access MinIO: : `kubectl create rolebinding argo-default-admin --clusterrole=admin --serviceaccount=argo:default --namespace=argo` (we also had to repeat this rolebinding creating for argo and argo-server service accounts in the argo namespace. This role-binding may have to be revised in a production environment where an admin role could be problematic.
 
-### Set up an IDE (optional)
+#### Set up an IDE (optional)
 
 If you want an IDE deployed (e.g. working on a server). Install [a vscode service](https://artifacthub.io/packages/helm/inseefrlab/vscode) via Helm, then access by port-forwarding `kubectl -n argo port-forward deployment/my-vscode 35547:8080`. You will probably have to give admin rights to this VSCode (service account: `my-vscode` over MinIO (as done for Argo)). Finally, you will also have to add Metaflow configuration variables to the ConfigMap of VSCode, for putting metaflow code packages in MinIO. 
 
@@ -79,19 +79,19 @@ If you want an IDE deployed (e.g. working on a server). Install [a vscode servic
 
 Then you just install the requirements with `pip install -r requirements.txt` and you're set to go! 
 
-# C. Example/Usage
+## C. Example/Usage
 
-## Fake Zarr Data
+### Fake Zarr Data
 You may not have data under the zarr format yet. You can define some metadata instance objects (such as in `zarr_linked_data/data/original_data.jsonld`), then define your hierarchy levels, data level and other parameters for the creation of a random Zarr test store using `zarr_linked_data/fake_data_flow.py`.
 You can find all our example data in the `data` folder, from the original jsonld metadata instance data, to the `test_store.zarr` containing random arrays as well as the jsonld metadata.
 
-## Local scripts
+### Local scripts
 
 - Fake data creation pipeline with: `python zarr_linked_data/fake_data_flow.py`
 - Metadata consolidation Metaflow pipeline with: `python zarr_linked_data/local_dev/metadata_consolidate_metaflow.py run`
 - Retrieve URI Metaflow pipeline with: `python zarr_linked_data/local_dev/uri_matching_metaflow.py run`
 
-## Local runthrough step-by-step 
+### Local runthrough step-by-step 
 
 Here is a detailed run through using poetry to set-up dependencies. (Please first install poetry and run `poetry install` as explained in `B. Getting Started`).
 
@@ -108,7 +108,7 @@ Here is a detailed run through using poetry to set-up dependencies. (Please firs
    Goal: Check your extracted dataset is readable and has expected the shape.
 
 
-## Scripts on kubernetes
+### Scripts on kubernetes
 
 - Fake data creation pipeline with: `python zarr_linked_data/fake_data_flow.py` (same as for locally)
 - Metadata consolidation Metaflow pipeline with: `python zarr_linked_data/consolidate_metadata_flow.py run`
@@ -116,7 +116,7 @@ Here is a detailed run through using poetry to set-up dependencies. (Please firs
 
 You can check the correct run of the metaflow flows with the command specified in the script. Then you will need to send them to Argo workflows. [Using Metaflow to create Argo DAGs](https://docs.metaflow.org/production/scheduling-metaflow-flows/scheduling-with-argo-workflows): `python zarr_linked_data/retrieval_flow.py --with retry argo-workflows create` (same for `consolidate_metadata_flow`)
 
-# Roadmap
+## Roadmap
 
 - Retrieval flow will be converted to a FastAPI instead
 - A flow `metadata update` will be added: it will transform the consolidated metadata and add it to a graph database (such as GraphDB or ApacheJenaFuseki): local development of [this flow is on an annex branch here](https://github.com/SDSC-ORD/zarr-linked-data/blob/metadata_extractor/zarr_linked_data/extract_all_metadata.py)
