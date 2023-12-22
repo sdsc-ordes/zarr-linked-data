@@ -103,7 +103,7 @@ Here is a detailed run through using poetry to set-up dependencies. (Please firs
 3. Run: `poetry run python zarr_linked_Data/local_dev/metadata_consolidate_metaflow.py run --path_for_store="zarr_linked_data/data/test_store.zarr"`
    Goal: Create the Zarr metadata store `.all_metadata` for the Zarr test_store i.e. a JSON file containing the metadata for the entire store.
   
-4. Run: `poetry run python zarr_linked_data/local_dev/uri_matching_metaflow.py run --path_for_store="zarr_linked_data/data/test_store2.zarr" --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_save="zarr_linked_data/data/results/dataset.npy"`
+4. Run: `poetry run python zarr_linked_data/local_dev/uri_matching_metaflow.py run --path_for_store="zarr_linked_data/data/test_store.zarr" --uri "http://www.catplus.ch/ontology/concepts/sample1" --path_save="zarr_linked_data/data/results/dataset.npy"`
    Goal: retrieve the dataset for sample1 with this URI from the Zarr test_store and save it in results folder as a Numpy file.
   
 5. Run `poetry run python zarr_linked_data/tests/test_dataset.py`
