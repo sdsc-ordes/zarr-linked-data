@@ -25,7 +25,7 @@ The *main functionalities* that were implemented in this project were:
 
 # B. Getting Started
 
-## Locally (without k8)
+## Locally (without k8s)
 
 Set-up your [poetry project](https://python-poetry.org/docs/#installation) using `poetry install` in the same folder as the pyproject.toml
 
